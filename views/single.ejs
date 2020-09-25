@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta charset="UTF-8" />
+          <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1.0"
+          />
+          <link rel="stylesheet" href="/style.css" />
+          <title>Document</title>
+     </head>
+     <body>
+          <%-include('./partials/nav')%>
+          <!-- <section>
+               <div class="flex">
+                    <a id="toggle" href="">Edit</a>
+                    <a href="/single/<%= item._id %>/delete">Delete</a>
+               </div>
+               <div class="details">
+                    <img src="<%= item.product_picture_URL %> " alt="" />
+                    <h3><%= item.product_name %></h3>
+                    <h3><%= item.Price %></h3>
+                    <h3><%= item.Company %></h3>
+               </div>
+          </section>
+ -->
+
+          <div id="single">
+               <div class="flex">
+                    <a id="toggle" href="">Edit</a>
+                    <a href="/single/<%= item._id %>/delete">Delete</a>
+               </div>
+               <div id="show">
+                    <img src="<%= item.product_picture_URL %> " alt="" />
+                    <h3><%= item.product_name %></h3>
+                    <h3><%= item.Price %></h3>
+                    <h3><%= item.Company %></h3>
+               </div>
+               <a class="buyIt" href="<%= item.link_shop %>">Buy</a>
+
+               <div id="edit">
+                    <form action="/single/<%= item._id %>/edit" method="POST">
+                         <input
+                              type="text"
+                              name="product_name"
+                              id=""
+                              value="<%= item.product_name %>"
+                         />
+                         <input
+                              type="text"
+                              name="Company"
+                              id=""
+                              value="<%= item.Company %>"
+                         />
+                         <input
+                              type="text"
+                              name="Price"
+                              id=""
+                              value="<%= item.Price %>"
+                         />
+                         <input
+                              type="text"
+                              name="product_picture_URL"
+                              id=""
+                              value="<%= item.product_picture_URL %>"
+                         />
+                         <input
+                              type="text"
+                              name="link_shop"
+                              id=""
+                              value="<%= item.link_shop %>"
+                         />
+
+                         <input type="submit" value="Edit Item" />
+                    </form>
+               </div>
+          </div>
+          <script>
+               const edit = document.getElementById('edit');
+               const show = document.getElementById('show');
+               const toggleBtn = document.getElementById('toggle');
+
+               edit.classList.add('hide');
+               toggleBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    edit.classList.toggle('hide');
+                    show.classList.toggle('hide');
+               });
+          </script>
+     </body>
+</html>

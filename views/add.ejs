@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta charset="UTF-8" />
+          <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1.0"
+          />
+          <link rel="stylesheet" href="/style.css" />
+          <title>Document</title>
+     </head>
+     <body>
+          <%-include('./partials/nav')%>
+
+          <section>
+               <form action="/add" method="POST" class="add">
+                    <input
+                         type="text"
+                         name="product_name"
+                         id=""
+                         placeholder="Product Name"
+                    />
+                    <input
+                         type="text"
+                         name="Company"
+                         id=""
+                         placeholder="Brand"
+                    />
+                    <input type="text" name="Price" id="" placeholder="Price" />
+                    <input
+                         type="text"
+                         name="product_picture_URL"
+                         id=""
+                         placeholder="Bild Url"
+                    />
+                    <input
+                         type="text"
+                         name="link_shop"
+                         id=""
+                         placeholder="Link Shop"
+                    />
+                    <input type="submit" value="send" />
+               </form>
+          </section>
+          <h1>Random Items</h1>
+          <section id="allItemsRandom">
+               <% item.forEach(elt => { %>
+
+               <div class="itemsRandom">
+                    <a href="/details">
+                         <img src="<%= elt.product_picture_URL %>" alt="" />
+                    </a>
+                    <div class="flex">
+                         <p><%= elt.product_name %></p>
+                         <p><%= elt.Price %></p>
+                    </div>
+                    <p><%= elt.Company %></p>
+               </div>
+               <% }) %>
+          </section>
+     </body>
+</html>
